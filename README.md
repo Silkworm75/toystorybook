@@ -1,7 +1,8 @@
 # ToyStoryBook Demo
 ## Getting Started
 First duplicate .env.local.example and rename to .env.local
-Add your API keys from Movie Database
+Add your API keys from Movie Database:
+https://developer.themoviedb.org/docs
 
 Second, run the development server:
 
