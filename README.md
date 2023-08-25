@@ -1,6 +1,9 @@
 # ToyStoryBook Demo
 ## Getting Started
-First, run the development server:
+First duplicate .env.local.example and rename to .env.local
+Add your API keys from Movie Database
+
+Second, run the development server:
 
 ```bash
 npm run dev

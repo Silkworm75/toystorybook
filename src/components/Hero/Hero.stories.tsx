@@ -5,12 +5,13 @@ import Hero from "./Hero";
 const meta = {
   title: "Components/Hero",
   component: Hero,
+  tags: ["autodocs"],
   args: {
     title: "Storybook Title",
     description: "Some Lorem Ipsum Text",
     bgImage: false,
     height: "full",
-    bgImageOnly: false
+    bgImageOnly: false,
   },
   argTypes: {
     bgColor: {

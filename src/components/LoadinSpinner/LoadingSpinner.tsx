@@ -20,7 +20,11 @@ interface LoadingSpinnerProps {
     | "text-error";
 }
 
-function LoadingSpinner({ style, size, color }: LoadingSpinnerProps) {
+/**
+ * # The LoadingSpinner component
+ * Shows a LoadingSpinner
+ */
+const LoadingSpinner = ({ style, size, color }: LoadingSpinnerProps) => {
   return (
     <div className="h-[calc(20vh)]">
       <span className={`loading ${color} ${style} ${size}`}></span>

@@ -1,20 +1,12 @@
-import { faker } from "@faker-js/faker";
 import React from "react";
 
 type Props = {
   starStyle: "default" | "orange";
+  rating: number;
 };
 
-function Rating({ starStyle }: Props) {
+const Rating = ({ starStyle, rating = 10 }: Props) => {
   const numIterations = 10;
-
-  const rating = Math.round(
-    faker.number.float({
-      min: 1,
-      max: 10,
-      precision: 0.1,
-    })
-  );
 
   return (
     <div>

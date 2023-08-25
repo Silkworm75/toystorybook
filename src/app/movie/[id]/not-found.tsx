@@ -1,9 +1,7 @@
-import { notFound } from "next/navigation";
-
 const Id = () => {
   return (
     <>
-      <h1>NO TFOUNS</h1>
+      <h1>NOT FOUND</h1>
     </>
   );
 };

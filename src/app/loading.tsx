@@ -1,9 +1,9 @@
 import LoadingSpinner from '@/components/LoadinSpinner/LoadingSpinner';
 
-export default function Loading() {
+const Loading = () => {
   // You can add any UI inside Loading, including a Skeleton.
   return (
-    <div>
+    <div className="h-screen  fixed z-50 w-full">
       <LoadingSpinner
         style="loading-bars"
         size="loading-lg"
@@ -12,3 +12,5 @@ export default function Loading() {
     </div>
   );
 }
+
+export default Loading;

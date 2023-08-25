@@ -2,9 +2,8 @@ import { TMDB_IMAGE_PATH } from "@/helper/constants";
 import Link from "next/link";
 import React from "react";
 import Rating from "@/components/Rating/Rating";
-import { Movie } from "@/types/movie";
+import { Movie } from "@/types/";
 import Image from "next/image";
-import Img from "@/components/Atoms/Img/Img";
 
 type Props = {
   movie: Movie;
@@ -15,9 +14,10 @@ type Props = {
   showText: boolean;
   showRevenue: boolean;
   showLink: boolean;
+  storyBook: boolean;
 };
 
-function MovieLayout({
+const MovieComponent = ({
   movie,
   showPoster,
   showTitle,
@@ -26,17 +26,28 @@ function MovieLayout({
   showText,
   showRevenue,
   showLink,
-}: Props) {
+  storyBook,
+}: Props) => {
   return (
     <section className="text-gray-600 body-font overflow-hidden">
       <div className="container px-5 py-24 mx-auto">
         <div className="relative lg:w-4/5 mx-auto flex flex-wrap">
           {showPoster && (
             <div className="relative w-96 aspect-[2/3]">
-              <Img
-                alt={`${movie.title}`}
-                src={`${TMDB_IMAGE_PATH}${movie.poster_path}`}
-              />
+              {!storyBook ? (
+                <Image
+                  alt={`${movie.title}`}
+                  fill
+                  sizes="30vw"
+                  priority
+                  quality={90}
+                  className=" lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+                  src={`${TMDB_IMAGE_PATH}${movie.poster_path}`}
+                />
+              ) : (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={movie.poster_path} alt={`${movie.title}`} />
+              )}
             </div>
           )}
 
@@ -55,7 +66,7 @@ function MovieLayout({
 
             {showRatings && (
               <div className="flex mb-4">
-                <Rating starStyle="orange" />
+                <Rating starStyle="orange" rating={0} />
               </div>
             )}
 
@@ -91,9 +102,9 @@ function MovieLayout({
       </div>
     </section>
   );
-}
+};
 
-MovieLayout.defaultProps = {
+MovieComponent.defaultProps = {
   showPoster: true,
   showTitle: true,
   showTagline: true,
@@ -101,6 +112,7 @@ MovieLayout.defaultProps = {
   showText: true,
   showRevenue: true,
   showLink: true,
+  storyBook: false,
 };
 
-export default MovieLayout;
+export default MovieComponent;

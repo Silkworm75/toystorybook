@@ -1,8 +1,6 @@
-export interface Movie {
-  id: number;
-  title: string;
-  overview: string;
-  poster_path: string;
+import { MovieTeaser } from ".";
+
+export interface Movie extends MovieTeaser {
   imdb_id: string;
   tagline: string;
   budget: number;

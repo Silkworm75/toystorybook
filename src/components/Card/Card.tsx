@@ -3,7 +3,7 @@ import Image from "next/image";
 import picture from "../../../public/images/pexels-magda-ehlers-1319572.jpg";
 import Link from "next/link";
 
-type Props = {
+type CardProps = {
   title: string;
   text?: string | null;
   buttonLabel?: string | null;
@@ -15,7 +15,11 @@ type Props = {
   cardSide?: boolean;
 };
 
-function Card({
+/**
+ * # The Card component
+ * Shows a Card
+ */
+const Card = ({
   title,
   text,
   buttonLabel,
@@ -25,7 +29,7 @@ function Card({
   imgSrc,
   imgBottom,
   cardSide,
-}: Props) {
+}: CardProps) => {
   const image = () => {
     let orientation = {
       w: !cardSide ? 1024 : 768,
@@ -35,7 +39,7 @@ function Card({
     return (
       picture &&
       imgSrc && (
-        <Link href={buttonLink} title={title}>
+        <Link className="w-96" href={buttonLink} title={title}>
           <figure>
             <Image
               alt={title}
@@ -56,8 +60,8 @@ function Card({
   return (
     <div
       className={`card ${compact ? "compact" : ""} ${
-        cardSide ? "card-side" : ""
-      } w-96 bg-base-100 shadow-xl`}
+        cardSide ? "card-side w-1/2" : "w-96"
+      }  bg-base-100 shadow-xl`}
     >
       {!imgBottom ? image() : null}
       <div className="card-body">

@@ -9,14 +9,18 @@ type Props = {
   height?: "full" | "half";
 };
 
-function Hero({
+/**
+ * # The Hero component
+ * Shows a Hero
+ */
+const Hero = ({
   title,
   description,
   bgColor,
   bgImage,
   height,
   bgImageOnly,
-}: Props) {
+}: Props) => {
   return (
     <div
       className={`hero ${
@@ -42,7 +46,7 @@ function Hero({
       )}
     </div>
   );
-}
+};
 
 Hero.defaultProps = {
   title: "Hero Title",
@@ -51,6 +55,6 @@ Hero.defaultProps = {
   bgImage: false,
   bgImageSrc: null,
   fullHeight: "full",
-  bgImageOnly: false
+  bgImageOnly: false,
 };
 export default Hero;
